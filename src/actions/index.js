@@ -6,10 +6,16 @@ const receiveProducts = products => ({
   products: products
 })
 
-export const getAllProducts = () => dispatch => {
-  shop.getProducts(products => {
+export const getAllProducts = () => async dispatch => {
+  try{
+    const res = await fetch('http://tech.work.co/shopping-cart/products.json');
+    const products = await res.json(); 
+    console.log(products,'test')
     dispatch(receiveProducts(products))
-  })
+  }
+  catch(error){
+    console.error(error);
+  }
 }
 
 const addToCartUnsafe = productId => ({
