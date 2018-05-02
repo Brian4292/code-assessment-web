@@ -1,0 +1,25 @@
+body{
+  background: #F4F5F7;
+}
+#root{
+  height: 100vh;
+}
+
+.flex{
+  display: flex;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column
+}
+
+.container{
+  width: 95%;
+  margin: auto;
+}
+
+.vertical{
+  align-items:center;
+  position: relative;
+}

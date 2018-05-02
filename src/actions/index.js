@@ -50,3 +50,9 @@ export const openModal = () => dispatch =>{
     type: types.OPEN_MODAL
   })
 }
+
+export const closeModal = () => dispatch => {
+  dispatch({
+    type: types.CLOSE_MODAL
+  })
+}

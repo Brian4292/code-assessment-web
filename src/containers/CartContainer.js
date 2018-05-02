@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { checkout, openModal } from '../actions'
+import { checkout, openModal, closeModal } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import Modal from 'react-modal';
@@ -19,7 +19,7 @@ const customStyles = {
 };
 Modal.setAppElement('#root')
 
-const CartContainer = ({ products, total, checkout, modalIsOpen, openModal }) => {
+const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, closeModal }) => {
   return (
     <div>
       <button onClick={openModal}
@@ -29,6 +29,7 @@ const CartContainer = ({ products, total, checkout, modalIsOpen, openModal }) =>
         style={customStyles}
       >
         <Cart
+          closeModal={closeModal}
           products={products}
           total={total}
           onCheckoutClicked={() => checkout(products)} />
@@ -59,7 +60,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { checkout, openModal }
+  { checkout, openModal, closeModal }
 )(CartContainer)
 
 //isOpen={this.state.modalIsOpen}
