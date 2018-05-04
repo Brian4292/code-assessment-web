@@ -10,15 +10,16 @@ const CartItem = ({ price, title, children, quantity, addToCart, removeFromCart 
     <div className="cart-item-des">
       <p className="product-item-title">{title}</p>
       <p className="product-item-price">${price}</p>
+      <p className="cart-delete">Remove</p>
     </div>
     <div>
       {children}
     </div>
     </div>
-    <div className="flex">
-      <button onClick={removeFromCart}>-</button>
-      <p className="product-item-inventory">{quantity > 0 ? `${quantity} In Cart` : 'Out of Stock'}</p>
-      <button onClick={addToCart}>+</button>
+    <div className="flex cart-update">
+      <button className="cart-remove" onClick={removeFromCart}>-</button>
+      <p className="cart-item-inventory">{quantity > 0 ? ` ${quantity} ` : 'Out of Stock'}</p>
+      <button className="cart-add" onClick={addToCart}>+</button>
       </div>
   </div>
 )

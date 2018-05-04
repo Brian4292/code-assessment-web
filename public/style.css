@@ -67,7 +67,7 @@ hr.style-two {
 }
 
 .out-stock img {
-  width: 40%;
+  width: 35%;
   position: relative;
   transform: translateX(-50%);
   left: 50%;
@@ -125,6 +125,38 @@ hr.style-two {
   width: 100%;
 }
 
+.cart-update {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 38%;
+}
+
+.cart-item-inventory {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.cart-remove {
+  font-size: 2em;
+  border-radius: 90px 0 0 90px;
+  background: #5E97D1;
+  width: 45px;
+}
+
+.cart-add {
+  font-size: 2em;
+  border-radius: 0 90px 90px 0;
+  background: #5E97D1;
+  width: 45px;
+}
+
+.cart-delete {
+  font-size: 1.5em;
+  color: Red;
+  cursor: pointer;
+}
+
 /* iPads (portrait) ----------- */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -148,7 +180,7 @@ hr.style-two {
   .cart-item-image {
     width: 375px;
   }
-  .cart-item-content .flex{
+  .cart-item-content .flex {
     flex-wrap: wrap;
   }
 }

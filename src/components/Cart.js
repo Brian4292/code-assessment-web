@@ -5,6 +5,7 @@ import EmptyCart from './EmptyCart'
 
 const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, removeFromCart }) => {
   const hasProducts = products.length > 0
+  const taxes = (total * .089).toFixed(2)
   console.log(products,'pro')
   const nodes = hasProducts ? (
     products.map(product =>product.quantity > 0 ?
@@ -31,14 +32,14 @@ const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, remov
       {total > 0 ? 
         <div className="totals container" >
           <p>Subtotal: &#36;{total}</p>
-          <p>Tax: &#36;{total * .089 /* make a redux action */}</p>
+          <p>Tax: &#36;{taxes /* make a redux action */}</p>
           <hr className="style-two" />
-          <p>Total: &#36;{total}</p>
+          <p>Total: &#36;{Number(total) + Number(taxes)}</p>
           </div>
       : null}
-      <div className={`button-cta checkout ${hasProducts ? 'active':'disabled'}`} onClick={onCheckoutClicked}
+      <div className={`button-cta checkout flex ${hasProducts ? 'active':'disabled'}`} onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
-        Checkout
+        <p>Checkout</p>
       </div>
     </div>
   )
