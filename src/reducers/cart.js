@@ -10,19 +10,24 @@ const initialState = {
   quantityById: {}
 }
 
-const addedIds = (state = initialState.addedIds, action) => {
+const addedIds = (state = initialState, action) => {
+  const { addedIds, quantityById } = state
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.indexOf(action.productId) !== -1) {
-        return state
+      if (addedIds.indexOf(action.productId) !== -1) {
+        return addedIds
       }
-      return [...state, action.productId]
+      return [...addedIds, action.productId]
     case REMOVE_FROM_CART:
-      return state.filter(el => action.productId !== el)
+      if (quantityById[action.productId] < 2){
+      return addedIds.filter(el => action.productId !== el)
+      }
+      return addedIds
     default:
-      return state
+      return addedIds
   }
 }
+
 
 const quantityById = (state = initialState.quantityById, action) => {
   const { productId } = action
@@ -33,7 +38,6 @@ const quantityById = (state = initialState.quantityById, action) => {
       }
     case REMOVE_FROM_CART:
       return {...state,
-      // [productId]: (state[productId] || 0) - 1
         [productId]: (state[productId] || 0) - 1
       }
     default:
@@ -54,7 +58,7 @@ const cart = (state = initialState, action) => {
       return action.cart
     default:
       return {
-        addedIds: addedIds(state.addedIds, action),
+        addedIds: addedIds(state, action),
         quantityById: quantityById(state.quantityById, action)
       }
   }

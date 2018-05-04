@@ -67,3 +67,37 @@ div.checkout{
   border-radius: 0;
   margin-top: auto;
 }
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+.product-item-image{
+  width: 42%;
+}
+.product-item-image img{
+  height:257px;
+}
+
+.product-item-content{
+  width: 50%;
+}
+}
+
+@media only screen and (min-device-width: 375px){
+/* Styles */
+.product-item-image{
+  width: 375px;
+}
+.product-item-container{
+  flex-wrap: wrap;
+}
+.product-item-content{
+  height: 100%;
+  width: 57%;
+  top: -1em;
+}
+
+.product-item-title{
+  margin-right: 14%;
+}
+}

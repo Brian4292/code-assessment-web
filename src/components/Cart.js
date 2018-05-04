@@ -5,6 +5,7 @@ import EmptyCart from './EmptyCart'
 
 const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, removeFromCart }) => {
   const hasProducts = products.length > 0
+  console.log(products,'pro')
   const nodes = hasProducts ? (
     products.map(product =>product.quantity > 0 ?
       <CartItem
