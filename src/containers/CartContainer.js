@@ -1,35 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { checkout, openModal, closeModal } from '../actions'
+import { checkout, openModal, closeModal, addToCart, removeFromCart } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import Modal from 'react-modal';
 
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
-};
 Modal.setAppElement('#root')
 
-const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, closeModal }) => {
+const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, closeModal, addToCart, removeFromCart }) => {
   return (
     <div>
-      <button onClick={openModal}
-      />
       <Modal
         isOpen={modalIsOpen}
-        style={customStyles}
+        className="Modal"
       >
         <Cart
           closeModal={closeModal}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
           products={products}
           total={total}
           onCheckoutClicked={() => checkout(products)} />
@@ -60,9 +49,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { checkout, openModal, closeModal }
+  { checkout, openModal, closeModal, addToCart, removeFromCart }
 )(CartContainer)
 
-//isOpen={this.state.modalIsOpen}
-  //  onAfterOpen={this.afterOpenModal}
-    //onRequestClose={this.closeModal}

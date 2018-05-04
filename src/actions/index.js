@@ -10,7 +10,6 @@ export const getAllProducts = () => async dispatch => {
   try{
     const res = await fetch('http://tech.work.co/shopping-cart/products.json');
     const products = await res.json(); 
-    console.log(products,'test')
     dispatch(receiveProducts(products))
   }
   catch(error){
@@ -23,10 +22,19 @@ const addToCartUnsafe = productId => ({
   productId
 })
 
+const removeFromCartUnsafe = productId => ({
+  type: types.REMOVE_FROM_CART,
+  productId
+})
+
 export const addToCart = productId => (dispatch, getState) => {
   if (getState().products.byId[productId].inventory > 0) {
     dispatch(addToCartUnsafe(productId))
   }
+}
+
+export const removeFromCart = productId => (dispatch, getState) => {
+    dispatch(removeFromCartUnsafe(productId))
 }
 
 export const checkout = products => (dispatch, getState) => {
