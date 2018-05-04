@@ -1,62 +1,63 @@
-body{
+body {
   background: #F4F5F7;
 }
-#root{
+
+#root {
   height: 100vh;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.flex-col{
+.flex-col {
   display: flex;
   flex-direction: column
 }
 
-.container{
+.container {
   width: 95%;
   margin: auto;
 }
 
-.vertical{
-  align-items:center;
+.vertical {
+  align-items: center;
   position: relative;
 }
 
-.cart-img{
+.cart-img {
   align-self: center;
   position: relative;
   margin-left: auto;
   cursor: pointer;
 }
 
-.header h2{
+.header h2 {
   font-size: 2em;
 }
 
-  .Modal {
-    position: absolute;
-    top: 50px;
-    left: 360px;
-    right: 360px;
-    bottom: 40px;
-    background-color: white;
-    border-radius: 4px;
-  }
-
-  hr.style-two {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    width: 100%;
+.Modal {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  right: 20%;
+  bottom: 15%;
+  background-color: white;
+  border-radius: 4px;
 }
 
-.cart-title{
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  width: 100%;
+}
+
+.cart-title {
   margin-left: 3%;
 }
 
-.out-stock p{
+.out-stock p {
   padding: 0;
   margin: 0;
   color: gray;
@@ -65,29 +66,29 @@ body{
   text-align: center;
 }
 
-.out-stock img{
+.out-stock img {
   width: 40%;
   position: relative;
   transform: translateX(-50%);
   left: 50%;
 }
 
-.out-stock{
+.out-stock {
   align-content: center;
   justify-content: center;
   height: 100%;
   position: relative;
-  top:-5%;
+  top: -5%;
 }
 
-.cart{
+.cart {
   height: 100%;
   flex-direction: column;
   align-items: center;
-  overflow:scroll;
+  overflow: scroll;
 }
 
-.cart-close{
+.cart-close {
   margin-left: auto;
   margin-right: 3%;
   cursor: pointer;
@@ -95,35 +96,59 @@ body{
   font-size: 1.5em;
 }
 
-.totals{
+.totals {
   width: 100%;
   position: relative;
   left: 4%;
 }
 
-.cart-item-des .product-item-title{
+.cart-item-des .product-item-title {
   margin-bottom: 0;
 }
-.cart-item-image{
+
+.cart-item-image {
   margin-right: 3%;
 }
 
-.cart-item-image img{
+.cart-item-image img {
   width: 300px;
 }
 
-.cart-item-content{
- height: 100%;
- width: 57%;
- position: relative;
- left: 4%;
+.cart-item-content {
+  height: 100%;
+  width: 57%;
+  position: relative;
+  left: 4%;
 }
 
-.hundo{
-  width:100%;
+.hundo {
+  width: 100%;
 }
 
 /* iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-/* Styles */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+  .Modal {
+    left: 10%;
+    right: 10%;
+  }
+}
+
+/* phones */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 767px) {
+  /* Styles */
+  .Modal {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .cart-item-image {
+    width: 375px;
+  }
+  .cart-item-content .flex{
+    flex-wrap: wrap;
+  }
 }
