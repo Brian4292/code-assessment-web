@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { checkout, openModal, closeModal, addToCart, removeFromCart } from '../actions'
+import { checkout, openModal, closeModal, addToCart, removeFromCart, deleteFromCart } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
 
-const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, closeModal, addToCart, removeFromCart }) => {
+const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, closeModal, addToCart, removeFromCart, deleteFromCart }) => {
   return (
     <div>
       <Modal
@@ -19,6 +19,7 @@ const CartContainer = ({ products, total, checkout, modalIsOpen, openModal, clos
           closeModal={closeModal}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
+          deleteFromCart={deleteFromCart}
           products={products}
           total={total}
           onCheckoutClicked={() => checkout(products)} />
@@ -49,6 +50,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { checkout, openModal, closeModal, addToCart, removeFromCart }
+  { checkout, openModal, closeModal, addToCart, removeFromCart, deleteFromCart }
 )(CartContainer)
 

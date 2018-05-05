@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import CartItem from './CartItem'
 import EmptyCart from './EmptyCart'
 
-const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, removeFromCart }) => {
+const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, removeFromCart, deleteFromCart }) => {
   const hasProducts = products.length > 0
   const taxes = (total * .089).toFixed(2)
   console.log(products,'pro')
@@ -16,6 +16,7 @@ const Cart = ({ products, total, onCheckoutClicked, closeModal, addToCart, remov
         key={product.id}
         removeFromCart={() => removeFromCart(product.id)}
         addToCart={() => addToCart(product.id)}
+        deleteFromCart={() => deleteFromCart(product.id, product.quantity)}
       /> : null
     )
   ) : (

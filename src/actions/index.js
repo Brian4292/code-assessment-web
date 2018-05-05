@@ -37,6 +37,10 @@ export const removeFromCart = productId => (dispatch, getState) => {
     dispatch(removeFromCartUnsafe(productId))
 }
 
+export const deleteFromCart = (productId,inventory) => (dispatch, getState) => {
+  dispatch({type: types.DELETE_FROM_CART,productId,inventory})
+}
+
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CartItem = ({ price, title, children, quantity, addToCart, removeFromCart }) => (
+const CartItem = ({ price, title, children, quantity, addToCart, removeFromCart, deleteFromCart }) => (
   <div className="cart-item-content">
     <div className="flex">
       <div className="cart-item-image">
@@ -10,7 +10,7 @@ const CartItem = ({ price, title, children, quantity, addToCart, removeFromCart 
     <div className="cart-item-des">
       <p className="product-item-title">{title}</p>
       <p className="product-item-price">${price}</p>
-      <p className="cart-delete">Remove</p>
+      <p onClick={deleteFromCart} className="cart-delete">Remove</p>
     </div>
     <div>
       {children}

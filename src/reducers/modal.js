@@ -4,7 +4,7 @@ import {
 } from '../constants/ActionTypes'
 
 const initialState = {
-  modalIsOpen: true
+  modalIsOpen: false
 }
 
 
