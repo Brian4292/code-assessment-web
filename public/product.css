@@ -75,7 +75,7 @@ div.checkout {
 
 /* Tablets*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   /* Styles */
   .product-item-image {
     width: 42%;
@@ -90,7 +90,7 @@ div.checkout {
 
 /* phones */
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 767px) {
+@media (max-width: 767px) {
   /* Styles */
   .product-item-image {
     width: 375px;
